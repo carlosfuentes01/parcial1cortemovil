@@ -26,7 +26,7 @@ namespace llamada.Platforms.Android
         public void llamar(string telefono)
         {
             var uri = Net.Uri.Parse("tel:"+ telefono);
-            var intent = new Intent(Intent.);
+            var intent = new Intent(Intent.ActionCall);
             intent.SetData(uri);
             var activity = Platform.CurrentActivity;
             activity.StartActivity(intent);
