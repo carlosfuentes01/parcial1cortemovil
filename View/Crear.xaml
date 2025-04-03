@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="llamada.Crear"
+             Title="Crear">
+    <VerticalStackLayout>
+        <Label 
+            Text="Ingrese el contacto"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label
+            Text="Nombre"
+            />
+        <Entry x:Name="nombre"
+            Placeholder="Carlos"
+            />
+        
+        <Label
+            
+            Text="telefono"
+            />
+        <Entry 
+            
+            x:Name="tel"
+            Placeholder="123546"
+            SelectionLength ="20"
+            Keyboard="Numeric"
+            />
+
+        <Label
+    Text="imagen"
+            HorizontalOptions="Center"
+    />
+        <Image x:Name="imagensita"
+               HeightRequest="200"></Image>
+        <Button Text="Escoger foto"
+                Clicked="Button_Clicked_1">
+            
+        </Button>
+        <Button Text="Crear contacto"
+                Clicked="Button_Clicked">
+            
+        </Button>
+
+    </VerticalStackLayout>
+</ContentPage>
