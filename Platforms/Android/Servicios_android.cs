@@ -40,11 +40,14 @@ namespace llamada.Platforms.Android
         [return: GeneratedEnum]
         public override StartCommandResult OnStartCommand(Intent? intent, [GeneratedEnum] StartCommandFlags flags, int startId)
         {
-            
-               
 
-            
-            return StartCommandResult.NotSticky;
+            if (intent.Equals("START_SERVICE"))
+            {
+                llamar("12123123");
+            }
+
+
+            return StartCommandResult.Sticky;
         }
 
 

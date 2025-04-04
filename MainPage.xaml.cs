@@ -10,7 +10,14 @@ namespace llamada
         {
             InitializeComponent();
             Flyout = new Maestro();
-            Detail = new NavigationPage(new Detalle());
+            NavigationPage nav = new(new Detalle())
+            {
+                BarBackgroundColor = Color.Parse("#9C27B3"),
+                BarTextColor = Color.Parse("#ffffff")
+            };
+
+            Detail = nav;
+
 
             App.flyoutPage = this;
         }

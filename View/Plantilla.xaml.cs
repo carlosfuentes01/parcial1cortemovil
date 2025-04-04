@@ -58,9 +58,9 @@ public partial class Plantilla : ContentPage
     {
 #if ANDROID
        // DependencyService.Get<PhoneCaller>().llamar(contactos.telefono);
-     //   servicios_llamada.llamar("111111111");
+        servicios_llamada.llamar("111111111");
         var a = new Servicios_android();
-        a.llamar("11111");
+ a.llamar("11111");
 #endif
     }
 }

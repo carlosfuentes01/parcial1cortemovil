@@ -67,7 +67,7 @@ public partial class Editar : ContentPage
                 int tamaño = App.flyoutPage.Detail.Navigation.NavigationStack.Count;
                 App.flyoutPage.Detail.Navigation.PopAsync();
                 App.flyoutPage.Detail.Navigation.PopAsync();
-             //   App.flyoutPage.Detail.Navigation.PushAsync(new Plantilla(nuevo_contacto));
+               App.flyoutPage.Detail.Navigation.PushAsync(new Plantilla(nuevo_contacto));
             }
 
         }

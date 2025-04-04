@@ -13,13 +13,12 @@ public static class MauiProgram
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
+    
 #if ANDROID
-		builder.Services.AddSingleton<PhoneCaller, Servicios_android>();
-
-
+        builder.Services.AddSingleton<PhoneCaller, Servicios_android>();
 #endif
         builder
-			.UseMauiApp<App>()
+            .UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
