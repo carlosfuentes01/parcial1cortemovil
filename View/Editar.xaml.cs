@@ -64,10 +64,10 @@ public partial class Editar : ContentPage
                 //no se uso un for normal porque puede que se halla eliminado un indice y pues eso daria error
 
                 App.contacto[indice_escogido] = nuevo_contacto;
-                int tamaño = App.flyoutPage.Detail.Navigation.NavigationStack.Count;
-                App.flyoutPage.Detail.Navigation.PopAsync();
-                App.flyoutPage.Detail.Navigation.PopAsync();
-               App.flyoutPage.Detail.Navigation.PushAsync(new Plantilla(nuevo_contacto));
+                int tamaño = App.navegacion.Navigation.NavigationStack.Count;
+                App.navegacion.Navigation.PopAsync();
+                App.navegacion.Navigation.PopAsync();
+               App.navegacion.Navigation.PushAsync(new Plantilla(nuevo_contacto));
             }
 
         }

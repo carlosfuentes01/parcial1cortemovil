@@ -30,7 +30,7 @@ public partial class Plantilla : ContentPage
 
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
-        App.flyoutPage.Detail.Navigation.PushAsync(new View.Editar(contactos));
+        App.navegacion.Navigation.PushAsync(new View.Editar(contactos));
         
     }
 
@@ -46,7 +46,7 @@ public partial class Plantilla : ContentPage
             int indice_escogido = App.contacto.IndexOf(contacto_en_observable_coleccion);
             App.contacto.RemoveAt(indice_escogido);
 
-            App.flyoutPage.Detail.Navigation.RemovePage(this);
+            App.navegacion.Navigation.RemovePage(this);
         }
 
 

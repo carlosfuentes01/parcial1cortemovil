@@ -15,14 +15,14 @@ private FileResult? fotito;
         }
         public static void Gotopage(ContentPage page)
         {
-            flyoutPage.Detail.Navigation.PushAsync(page);
-            flyoutPage.IsPresented = false;
+            navegacion.Navigation.PushAsync(page);
+    
         }
         public static ObservableCollection<ContactoModel> contacto { get; set; }
-        public static FlyoutPage flyoutPage { get; set; }
+        public static NavigationPage navegacion { get; set; }
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new MainPage());
+            return new Window(new NavigationPage(new MainPage()));
         }
     }
 }

@@ -1,53 +1,153 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bottomSheet="clr-namespace:Syncfusion.Maui.Toolkit.BottomSheet;assembly=Syncfusion.Maui.Toolkit"
              x:Class="llamada.Detalle"
              Title="Pagina principal">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label 
-        Text="Bienvenido a su aplicacion de llamadas que para nada mina criptos"
-        VerticalOptions="Center" 
-        HorizontalOptions="Center" />
+    <NavigationPage.TitleView>
+        <Label HorizontalOptions="Center"
+               Text="Phonebook"
+               TextColor="White"
+               FontAttributes="Bold"
+               Padding="10"
+               FontSize="25"           
+               >
 
-            <CollectionView 
-                    x:Name="coleccion"
-                    ItemsSource="{Binding contacto}"
-                    SelectionMode="Single"
-                    SelectionChanged="CollectionView_SelectionChanged">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid ColumnDefinitions="100,*"
-                            RowDefinitions="50,50,5">
-                            <Image Source="{Binding imagen}"
-                                    Aspect="AspectFit"
-                                    Grid.RowSpan="2"
-                                    Grid.Row="0"
-                                    Grid.Column="0">
-                            </Image>
-                            <Label Text="{Binding Nombre}"
-                                    Grid.Column="1"
-                                    Grid.Row="0"
-                                    VerticalOptions="Center"
-                                  />
-                            <Label Text="{Binding telefono}"
+        </Label>
+    </NavigationPage.TitleView>
+    <bottomSheet:SfBottomSheet x:Name="bottomsheet" 
+                 
+                     EnableSwiping="True"
+                     >
+        <bottomSheet:SfBottomSheet.Content >
+            <VerticalStackLayout>
+
+                <Border HorizontalOptions="End"
+            VerticalOptions="End"
+            TranslationY="580"
+            >
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="25,25,25,25"/>
+                    </Border.StrokeShape>
+                    <Button x:Name="botoncito"
+Text="+"
+    BackgroundColor="#9C27B3"
+    Clicked="OpenBottomSheet">
+                    </Button>
+                </Border>
+
+                <VerticalStackLayout>
+                    <ScrollView>
+
+                        <VerticalStackLayout>
+
+
+                            <Label 
+    Text="Bienvenido a su aplicacion de llamadas que para nada mina criptos"
+    VerticalOptions="Center" 
+    HorizontalOptions="Center" />
+
+                            <CollectionView 
+                x:Name="coleccion"
+                ItemsSource="{Binding contacto}"
+                SelectionMode="Single"
+                SelectionChanged="CollectionView_SelectionChanged">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid ColumnDefinitions="100,*"
+                        RowDefinitions="50,50,5">
+                                            <Image Source="{Binding imagen}"
+                                Aspect="AspectFit"
+                                Grid.RowSpan="2"
+                                Grid.Row="0"
+                                Grid.Column="0">
+                                            </Image>
+                                            <Label Text="{Binding Nombre}"
                                 Grid.Column="1"
-                                Grid.Row="1"
+                                Grid.Row="0"
                                 VerticalOptions="Center"
-           
-                                />
-                            <Polyline Points="0,0 500,0"
-                              Grid.ColumnSpan="2"
-                              Grid.Column="0"
-                              Grid.Row="2"
-                              Stroke="black" 
-                              StrokeThickness="1"
                               />
+                                            <Label Text="{Binding telefono}"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            VerticalOptions="Center"
+       
+                            />
+                                            <Polyline Points="0,0 500,0"
+                          Grid.ColumnSpan="2"
+                          Grid.Column="0"
+                          Grid.Row="2"
+                          Stroke="black" 
+                          StrokeThickness="1"
+                          />
 
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+
+                            
+
+
+                        </VerticalStackLayout>
+
+                    </ScrollView>
+
+
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </bottomSheet:SfBottomSheet.Content>
+        <bottomSheet:SfBottomSheet.BottomSheetContent BackgroundColor="Aquamarine" >
+            <VerticalStackLayout>
+                <Label 
+         Text="Ingrese el contacto"
+         VerticalOptions="Center" 
+         HorizontalOptions="Center" />
+
+                <Label
+         Text="Nombre"
+         />
+                <Entry x:Name="nombre"
+         Placeholder="Carlos"
+         />
+
+                <Label
+         
+         Text="telefono"
+         />
+                <Entry 
+         
+         x:Name="tel"
+         Placeholder="123546"
+         SelectionLength ="20"
+         Keyboard="Numeric"
+         />
+
+                <Label
+ Text="imagen"
+         HorizontalOptions="Center"
+ />
+                <Image x:Name="imagensita"
+            HeightRequest="200"></Image>
+                <Button Text="Escoger foto"
+             Clicked="escogerfoto">
+
+                </Button>
+                <Button Text="Crear contacto"
+             Clicked="crear">
+
+                </Button>
+
+            </VerticalStackLayout>
+
+
+
+
+        </bottomSheet:SfBottomSheet.BottomSheetContent>
+    </bottomSheet:SfBottomSheet>
+
+
+
 </ContentPage>

@@ -7,13 +7,16 @@ namespace llamada;
 
 public partial class Crear : ContentPage
 {
-   private FileResult fotito;
-   private string source;
-	public Crear()
-	{
-		InitializeComponent();
-        
+
+    public Crear()
+    {
+        InitializeComponent();
+
     }
+
+    private FileResult fotito;
+   private string source;
+	
    
     public bool validar_unico(string numero, ObservableCollection<ContactoModel> coleccion)
     {
@@ -94,7 +97,7 @@ public partial class Crear : ContentPage
                 {
                     App.contacto.Add(contacto);
                 }
-                App.flyoutPage.Detail.Navigation.RemovePage(this);
+                App.navegacion.Navigation.RemovePage(this);
             }
         }
         else
