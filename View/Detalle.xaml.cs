@@ -40,12 +40,12 @@ public partial class Detalle : ContentPage
             imagen = null,
             telefono = "+57 1231111"
         };
-        _context = new Model.Validadortexto();
+        
         InitializeComponent();
         contacto = App.contacto;
         contacto.Add(contacto_base);
         Binding binding = new Binding();
-    
+        _context = new Model.Validadortexto();
         this.BindingContext = this;
    
     
