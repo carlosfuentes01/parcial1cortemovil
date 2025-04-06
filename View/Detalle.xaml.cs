@@ -12,6 +12,7 @@ using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
 using CommunityToolkit.Maui.Alerts;
 using CommunityToolkit.Maui.Core;
 using Microsoft.Maui.Graphics.Text;
+using Syncfusion.Maui.Toolkit.Carousel;
 
 
 
@@ -19,6 +20,14 @@ using Microsoft.Maui.Graphics.Text;
 namespace llamada;
 public partial class Detalle : ContentPage
 {
+     //validadores
+
+    private Validadortexto _context;
+
+    private void nameEntry_Unfocused(object sender, FocusEventArgs e)
+    {
+        _context.Name.Validate();
+    }
 
 
     public Detalle()
@@ -31,17 +40,20 @@ public partial class Detalle : ContentPage
             imagen = null,
             telefono = "+57 1231111"
         };
-
+        _context = new Model.Validadortexto();
         InitializeComponent();
         contacto = App.contacto;
         contacto.Add(contacto_base);
-       
+        Binding binding = new Binding();
+    
         this.BindingContext = this;
+   
+    
     }
 
     public  ObservableCollection<ContactoModel> contacto { get; set; }
 
-    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void CollectionView_SelectionChanged(object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
     {
         ContactoModel? contacto_seleccionado = (ContactoModel?)e.CurrentSelection.FirstOrDefault();
          

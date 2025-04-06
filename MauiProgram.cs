@@ -4,6 +4,7 @@ using llamada.View;
 using Syncfusion.Maui.Toolkit;
 using Syncfusion.Maui.Toolkit.Hosting;
 using CommunityToolkit.Maui;
+using Plugin.ValidationRules.Interfaces;
 
 #if ANDROID
 using llamada.Platforms.Android;
@@ -24,6 +25,7 @@ public static class MauiProgram
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
             .ConfigureSyncfusionToolkit()
+            
             .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
