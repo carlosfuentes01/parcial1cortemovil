@@ -7,14 +7,24 @@ using The49.Maui.BottomSheet;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static Android.Graphics.ImageDecoder;
 using FileSystem = Microsoft.Maui.Storage.FileSystem;
+using CommunityToolkit.Maui.Core.Platform;
+using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
+using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using Microsoft.Maui.Graphics.Text;
+
+
 
 
 namespace llamada;
 public partial class Detalle : ContentPage
 {
 
+
     public Detalle()
-	{
+    {
+
+    
         ContactoModel contacto_base = new ContactoModel
         {
             Nombre = "carlos",
@@ -25,8 +35,8 @@ public partial class Detalle : ContentPage
         InitializeComponent();
         contacto = App.contacto;
         contacto.Add(contacto_base);
+       
         this.BindingContext = this;
-
     }
 
     public  ObservableCollection<ContactoModel> contacto { get; set; }
@@ -152,6 +162,25 @@ public partial class Detalle : ContentPage
                     App.contacto.Add(contacto);
                 }
                 bottomsheet.Close();
+                tel.Text = "";
+                imagensita.Source = null;
+                source = "";
+                nombre.Text = "";
+                CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+
+                ToastDuration duration = ToastDuration.Short;
+                double fontSize = 14;
+
+
+
+  
+
+                var toast = Toast.Make("New contact added.", ToastDuration.Long, fontSize);
+
+                toast.Show(cancellationTokenSource.Token);
+                
+
             }
         }
         else
@@ -159,6 +188,16 @@ public partial class Detalle : ContentPage
             DisplayAlert("Error", "Falta algun campo por rellenar o coloco algo diferente a un digito en el telefono", "Cerrar");
         }
     }
+
+
+    private void cerrado(Microsoft.Maui.Controls.Entry entrada)
+    {
+        if (entrada.IsSoftKeyboardShowing())
+        {
+            entrada.HideKeyboardAsync(CancellationToken.None);
+        }
+    }
+    
 
     private async void escogerfoto(object sender, EventArgs e)
     {
@@ -239,4 +278,9 @@ public partial class Detalle : ContentPage
 
     }
 
+    private void cerrar_teclado(object sender, EventArgs e)
+    {
+      var entrada= (Microsoft.Maui.Controls.Entry)sender;
+        entrada.HideKeyboardAsync(CancellationToken.None);
+    }
 }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:bottomSheet="clr-namespace:Syncfusion.Maui.Toolkit.BottomSheet;assembly=Syncfusion.Maui.Toolkit"
              x:Class="llamada.Detalle"
+             x:Name="boton_crear"
              Title="Pagina principal">
     <NavigationPage.TitleView>
         <Label HorizontalOptions="Center"
@@ -16,25 +17,29 @@
         </Label>
     </NavigationPage.TitleView>
     <bottomSheet:SfBottomSheet x:Name="bottomsheet" 
-                 
+                  IsModal="True"
                      EnableSwiping="True"
                      >
         <bottomSheet:SfBottomSheet.Content >
             <VerticalStackLayout>
-
-                <Border HorizontalOptions="End"
-            VerticalOptions="End"
-            TranslationY="580"
-            >
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="25,25,25,25"/>
-                    </Border.StrokeShape>
-                    <Button x:Name="botoncito"
+              
+                    <Border HorizontalOptions="End"
+            TranslationX="-20"
+            TranslationY="700"
+             ZIndex="1"
+               
+                        >
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="25,25,25,25"/>
+                        </Border.StrokeShape>
+                        <Button 
 Text="+"
     BackgroundColor="#9C27B3"
     Clicked="OpenBottomSheet">
-                    </Button>
-                </Border>
+                        </Button>
+                    </Border>
+              
+                
 
                 <VerticalStackLayout>
                     <ScrollView>
@@ -110,19 +115,22 @@ Text="+"
          Text="Nombre"
          />
                 <Entry x:Name="nombre"
+                          ClearButtonVisibility="WhileEditing"
+                       Unfocused="cerrar_teclado"
          Placeholder="Carlos"
          />
 
                 <Label
-         
          Text="telefono"
          />
                 <Entry 
-         
+Unfocused="cerrar_teclado"
+          ClearButtonVisibility="WhileEditing"
          x:Name="tel"
          Placeholder="123546"
-         SelectionLength ="20"
-         Keyboard="Numeric"
+         MaxLength ="20"
+                  
+         Keyboard="Telephone"
          />
 
                 <Label

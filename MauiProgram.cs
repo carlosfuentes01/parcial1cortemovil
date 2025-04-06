@@ -3,7 +3,7 @@ using llamada.Servicios;
 using llamada.View;
 using Syncfusion.Maui.Toolkit;
 using Syncfusion.Maui.Toolkit.Hosting;
-
+using CommunityToolkit.Maui;
 
 #if ANDROID
 using llamada.Platforms.Android;
@@ -22,8 +22,9 @@ public static class MauiProgram
 #endif
         builder
             .UseMauiApp<App>()
-			.ConfigureSyncfusionToolkit()
-			.ConfigureFonts(fonts =>
+            .UseMauiCommunityToolkit()
+            .ConfigureSyncfusionToolkit()
+            .ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
